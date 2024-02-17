@@ -3,12 +3,31 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'montserrat';
-    color: black;
+    color: white;
 }
 
 html, body {
     width: 100%;
     height: 100%;
+}
+
+#cursor {
+    height: 25px;
+    width: 25px;
+    background-color: #95C11E;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+}
+
+#cursor-blur {
+    height: 300px;
+    width: 300px;
+    background-color: #96c11e3d;
+    filter: blur(50px);
+    border-radius: 50%;
+    position: fixed;
+    z-index: 9;
 }
 
 #nav {
@@ -56,6 +75,7 @@ video {
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    z-index: 10;
 }
 
 #page1 h1 {
@@ -67,7 +87,7 @@ video {
 #page1 h1::before {
     content: "EAT. DRINK. PLAY.";
     position: absolute;
-    color: white;
+    color: black;
     top: -4px;
     left: -4px;
     -webkit-text-stroke: 1px #95C11E;
@@ -88,4 +108,45 @@ video {
 #page2 {
     height: 100vh;
     width: 100%;
+    z-index: 10;
 }
+
+#scroller {
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#scroller::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes scrolling {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+#scroller-in-1 {
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scrolling;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#scroller h4 {
+    display: inline-block;
+    font-size: 80px;
+    font-weight: 900;
+    font-family: gilroy;
+    margin-right: 30px;
+    color: transparent;
+    -webkit-text-stroke: 1px #95C11E;
+}
+
